@@ -48,12 +48,54 @@ table {
 	border-spacing: 0;
 }
 
-/* Set every element's box-sizing to border-box */
+// Variables
+
+// Grid Mixins
+.custom-grid() {
+	display: grid;
+	grid-template-columns: minmax(1rem, 1fr) repeat(12, minmax(1rem, 6rem)) minmax(1rem, 1fr);
+}
+.grid-display-inner() {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(1rem, 6rem));
+}
+.grid-all() {
+	grid-column: 1 / -1
+}
+.grid-main() {
+	grid-column: ~"4 / -4";
+}
+.grid-narrow() {
+	grid-column: 5 / -5
+}
+.grid-wide() {
+	grid-column: 2 / -2;
+}
+
+// General styles
 * {
     box-sizing: border-box;
 }
-
-html, body {
-    height: 100%;
+html {
+	font-size: 62.5%;
+	height: 100%;
+	line-height: 1.25;
+}
+h1 {font-size: 6.4rem;}
+h2 {font-size: 4rem;}
+h3 {font-size: 3.2rem;}
+h4 {font-size: 2.4rem;}
+p {font-size: 1.8rem;}
+.container {
+	.custom-grid;
 }
 
+header {
+	.grid-wide;
+}
+.resume-top {
+	.grid-wide;
+}
+.side-bar {
+	grid-column: 2 / 4;
+}
