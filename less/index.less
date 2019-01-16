@@ -49,6 +49,8 @@ table {
 }
 
 // Variables
+@hed-font-stack: 'Open Sans', sans-serif;
+@body-font-stack: 'Merriweather', serif;
 
 // Grid Mixins
 .custom-grid() {
@@ -81,11 +83,11 @@ html {
 	height: 100%;
 	line-height: 1.25;
 }
-h1 {font-size: 6.4rem;}
-h2 {font-size: 4rem;}
-h3 {font-size: 3.2rem;}
-h4 {font-size: 2.4rem;}
-p {font-size: 1.8rem;}
+h1 {font-size: 6.4rem; 	font-family: @hed-font-stack;}
+h2 {font-size: 4rem; 	font-family: @hed-font-stack;}
+h3 {font-size: 3.2rem; 	font-family: @hed-font-stack;}
+h4 {font-size: 2.4rem; 	font-family: @hed-font-stack;}
+p {font-size: 1.8rem; 	font-family: @body-font-stack;}
 .container {
 	.custom-grid;
 }
@@ -93,8 +95,44 @@ p {font-size: 1.8rem;}
 header {
 	.grid-wide;
 }
+nav {
+	border-bottom: 1px solid black;
+	font-family: @hed-font-stack;
+	margin: 2rem 0;
+	padding-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	a {
+		font-size: 1.8rem;
+		text-decoration: none;
+		color: inherit;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.first-name {
+		font-size: 4rem;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	.last-name {
+		font-size: 4rem;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+}
 .resume-top {
 	.grid-wide;
+	h1 {
+		.first-name {
+			font-weight: 300;
+			text-transform: uppercase;
+		}
+		.last-name {
+			font-weight: 800;
+			text-transform: uppercase;
+		}
+	}
 }
 .side-bar {
 	grid-column: 2 / 4;

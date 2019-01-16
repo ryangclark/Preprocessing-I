@@ -136,18 +136,23 @@ html {
 }
 h1 {
   font-size: 6.4rem;
+  font-family: 'Open Sans', sans-serif;
 }
 h2 {
   font-size: 4rem;
+  font-family: 'Open Sans', sans-serif;
 }
 h3 {
   font-size: 3.2rem;
+  font-family: 'Open Sans', sans-serif;
 }
 h4 {
   font-size: 2.4rem;
+  font-family: 'Open Sans', sans-serif;
 }
 p {
   font-size: 1.8rem;
+  font-family: 'Merriweather', serif;
 }
 .container {
   display: grid;
@@ -156,8 +161,42 @@ p {
 header {
   grid-column: 2 / -2;
 }
+nav {
+  border-bottom: 1px solid black;
+  font-family: 'Open Sans', sans-serif;
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+nav a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: inherit;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav .first-name {
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+nav .last-name {
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
 .resume-top {
   grid-column: 2 / -2;
+}
+.resume-top h1 .first-name {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.resume-top h1 .last-name {
+  font-weight: 800;
+  text-transform: uppercase;
 }
 .side-bar {
   grid-column: 2 / 4;
