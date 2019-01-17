@@ -55,7 +55,7 @@ table {
 // Grid Mixins
 .custom-grid() {
 	display: grid;
-	grid-template-columns: minmax(1rem, 1fr) repeat(12, minmax(1rem, 6rem)) minmax(1rem, 1fr);
+	grid-template-columns: minmax(1.6rem, 1fr) repeat(12, minmax(1.6rem, 9.6rem)) minmax(1.6rem, 1fr);
 }
 .grid-display-inner() {
 	display: grid;
@@ -65,7 +65,7 @@ table {
 	grid-column: 1 / -1
 }
 .grid-main() {
-	grid-column: ~"4 / -4";
+	grid-column: 4 / -4;
 }
 .grid-narrow() {
 	grid-column: 5 / -5
@@ -83,17 +83,20 @@ html {
 	height: 100%;
 	line-height: 1.25;
 }
-h1 {font-size: 6.4rem; 	font-family: @hed-font-stack;}
-h2 {font-size: 4rem; 	font-family: @hed-font-stack;}
-h3 {font-size: 3.2rem; 	font-family: @hed-font-stack;}
-h4 {font-size: 2.4rem; 	font-family: @hed-font-stack;}
-p {font-size: 1.8rem; 	font-family: @body-font-stack;}
+h1 {font-size: 6.4rem; 	font-family: @hed-font-stack; font-weight: 700;}
+h2 {font-size: 3.2rem; 	font-family: @hed-font-stack; font-weight: 700;}
+h3 {font-size: 2.0rem; 	font-family: @hed-font-stack; font-weight: 700;}
+h4 {font-size: 1.8rem; 	font-family: @hed-font-stack; font-weight: 700;}
+p {font-size: 1.6rem; 	font-family: @body-font-stack;}
 .container {
 	.custom-grid;
 }
 
 header {
 	.grid-wide;
+	@media (max-width: 500px) {
+		.grid-wide;
+	}
 }
 nav {
 	border-bottom: 1px solid black;
@@ -101,6 +104,8 @@ nav {
 	margin: 2rem 0;
 	padding-bottom: 1rem;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	align-items: center;
 	a {
 		font-size: 1.8rem;
@@ -108,6 +113,31 @@ nav {
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+	#my-name {
+		@media (max-width: 500px) {
+			padding-right: 2rem;
+			margin-bottom: 1rem;
+		}
+	}
+	.active-nav {
+		font-weight: 700;
+	}
+	div {
+		display: flex;
+		justify-content: space-around;
+		margin-left: 4rem;
+		a {
+			padding: 0 1rem;
+			@media (max-width: 500px) {
+				padding: 1rem 2rem;
+			}
+		}
+		@media (max-width: 500px) {
+			border-top: 1px solid rgba(0,0,0,0.2);
+			margin: 1rem auto;
+			padding-top: 1.5rem;
 		}
 	}
 	.first-name {
@@ -121,8 +151,21 @@ nav {
 		text-transform: uppercase;
 	}
 }
+.resume-content {
+	.grid-main;
+	display: grid;
+	grid-template-columns: minmax(16rem, 1fr) 3.2rem minmax(9.6rem,2fr);
+	@media (max-width: 500px) {
+		.grid-wide;
+		display: block;
+	}
+}
 .resume-top {
-	.grid-wide;
+	.grid-main;
+	@media (max-width: 500px) {
+		.grid-wide;
+	}
+	margin: 4rem 0 2rem;
 	h1 {
 		.first-name {
 			font-weight: 300;
@@ -134,6 +177,57 @@ nav {
 		}
 	}
 }
+.experience {
+	grid-column: 3;
+	margin: 1em 0;
+	h2 {
+		margin-bottom: 1rem;
+	}
+	h3 {
+		margin-bottom: .5rem;
+		line-height: 1.25;
+	}
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.25;
+	}
+	.font-weight-thin {
+		font-weight: 300;
+	}
+	.position-date {
+		font-family: @hed-font-stack;
+		font-style: italic;
+	}
+	@media (max-width: 500px) {
+		margin: 4rem 0;
+	}
+}
 .side-bar {
-	grid-column: 2 / 4;
+	margin: 1em 0;
+	h2 {
+		margin-bottom: 1rem;
+	}
+	h2:not(:first-child) {
+		margin-top: 2rem;
+	}
+	h3 {
+		margin-bottom: .75rem;
+	}
+	.font-italic {
+		font-style: italic;
+		font-weight: 800;
+	}
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.25;
+	}
+	@media (max-width: 500px) {
+		margin: 4rem 0;
+	}
+}
+footer {
+	.grid-main;
+	@media (max-width: 500px) {
+		.grid-wide;
+	}
 }
